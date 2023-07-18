@@ -1,19 +1,19 @@
 <?php
 /**
-* PrestaShop module created by Saxtec, a prestashop certificated agency
-*
-* @author    Saxtec https://www.saxtec.com
-* @copyright 2008-2021 Saxtec
-* @license   This program is not free software and you can't resell and redistribute it
-*
-* CONTACT WITH DEVELOPER prestashop@saxtec.com
-*/
+ * PrestaShop module created by Saxtec, a prestashop certificated agency
+ *
+ * @author    Saxtec https://www.saxtec.com
+ * @copyright 2008-2021 Saxtec
+ * @license   This program is not free software and you can't resell and redistribute it
+ *
+ * CONTACT WITH DEVELOPER prestashop@saxtec.com
+ */
 
 if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-require_once(_PS_ROOT_DIR_.'/modules/sxdhl/vendor/autoload.php');
+require_once(_PS_ROOT_DIR_ . '/modules/sxdhl/vendor/autoload.php');
 
 // Require the Main-Class (other classes will included by this file)
 use Petschko\DHL\BusinessShipment;
@@ -43,7 +43,7 @@ class CreateLabel extends Module
             $this->credentials->setSignature($dhlaccess['signature']);
             $this->credentials->setEkp($dhlaccess['ekp']);
             $this->credentials->setApiUser('ps_sx_shipping_1');
-            $this->credentials->setApiPassword('hjoChRAru3l3wNOp9d1llCOOspimcg');
+            $this->credentials->setApiPassword('');
         } else {
             $this->credentials->setApiUser($dhlaccess['user']);
             $this->credentials->setApiPassword($dhlaccess['signature']);
@@ -91,16 +91,20 @@ class CreateLabel extends Module
         $house = $street_array[count($street_array) - 1];
         $receiver = new Receiver();
 
-        if (isset($recipient['company']) && Tools::strlen($recipient['company']) >
-            0) {
+        if (
+            isset($recipient['company']) && Tools::strlen($recipient['company']) >
+            0
+        ) {
             $receiver->setName($recipient['company']);
             $receiver->setName2($recipient['firstname'] . " " . $recipient['lastname']);
         } else {
             $receiver->setName($recipient['firstname'] . " " . $recipient['lastname']);
         }
 
-        if (isset($recipient['address2']) && Tools::strlen($recipient['address2']) >
-        0) {
+        if (
+            isset($recipient['address2']) && Tools::strlen($recipient['address2']) >
+            0
+        ) {
             $receiver->setName3("(" . $recipient['address2'] . ")");
         }
         $receiver->setStreetName($street);
