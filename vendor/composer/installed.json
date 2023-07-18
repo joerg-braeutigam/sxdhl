@@ -1,0 +1,42 @@
+[
+    {
+        "name": "petschko/dhl-php-sdk",
+        "version": "v0.4",
+        "version_normalized": "0.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Petschko/dhl-php-sdk.git",
+            "reference": "451e5ffd03c17c639d841537d31d9ce26d05b79c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Petschko/dhl-php-sdk/zipball/451e5ffd03c17c639d841537d31d9ce26d05b79c",
+            "reference": "451e5ffd03c17c639d841537d31d9ce26d05b79c",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "ext-soap": "*",
+            "php": ">=5.4.0"
+        },
+        "time": "2018-09-23T17:07:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Petschko\\DHL\\": "includes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Peter Dragicevic",
+                "email": "peter@petschko.org"
+            }
+        ],
+        "description": "DHL SDK"
+    }
+]
