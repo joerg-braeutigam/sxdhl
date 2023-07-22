@@ -134,7 +134,7 @@ while ($i < 1 && count($_get_orders) > 0) {
             . " where id_order = '$id_order'";
         $_get_shipping_from_orders = $db->executeS($_sql_get_shipping_from_orders);
         if (count($_get_shipping_from_orders) != '1') {
-            mail("shop@dessous-welt.de", "Fehler beim DHL Label", "Schau mal bei Bestellung $id_order. \nDa gibt es ein Problem.\nVielleicht fehlt das DHL Label?", "From: shop@dessous-welt.de");
+            mail("mail@domain.de", "Fehler beim DHL Label", "Schau mal bei Bestellung $id_order. \nDa gibt es ein Problem.\nVielleicht fehlt das DHL Label?", "From: mail@domain.de");
         } else {
             $shipping_number_orders = $_get_shipping_from_orders[0]['shipping_number'];
             // DB Eintrag
