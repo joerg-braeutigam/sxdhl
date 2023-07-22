@@ -74,8 +74,6 @@ while($i < 1 && count($_get_orders) > 0) {
         {
             $tracking_result = $track->getState($shipping_number);
 
-            // mail("office@joergbraeutigam.com", "DHL Tracking gestartet", "checke $id_order => $id_sxdhl => $shipping_number => $state ( $label_update )\n\n".print_r($tracking_result,1));
-
             if (is_array($tracking_result)) {
                 foreach ($tracking_result as $tracking_state) {
                     $sql_track_detail = "insert into " . _DB_PREFIX_ . "sxdhl_detail "
@@ -111,7 +109,6 @@ while($i < 1 && count($_get_orders) > 0) {
 
                             $id_carrier = $order->id_carrier;
                             
-                            mail("office@joergbraeutigam.com", "Bestellung $id_order ($shipping_number) wurde versendet.", print_r($order, 1), "From: shop@bracli-dessous.de");
                             $order_carrier = new OrderCarrier($id_carrier);
                             $order_carrier->sendInTransitEmail($order);
                         } else {
@@ -177,9 +174,9 @@ foreach ($_get_orders_recv as $_myorder) {
 		if($order->current_state == '20')
 		{
 			$order->setWsCurrentState($state_done);
-            $order->update();
+            		$order->update();
 
-            echo "Order $id_order ist endgültig \n";
+            		echo "Order $id_order ist endgültig \n";
 		} 
 	} else {
             echo "Order $id_order kann noch zurück geschickt werden. \n";
